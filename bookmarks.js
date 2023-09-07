@@ -3,6 +3,7 @@
 
 // javascript:(()=>{   })()
 
+// image replacer
 let images = document.getElementsByTagName("img");
 console.log(images);
 for (var i = 0; i < images.length; i++) {
