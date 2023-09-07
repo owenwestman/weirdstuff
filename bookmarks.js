@@ -2,3 +2,9 @@
 //set these as the url in a bookmark to run easily on any page
 
 // javascript:(()=>{   })()
+
+let images = document.getElementsByTagName("img");
+console.log(images);
+for (var i = 0; i < images.length; i++) {
+  images[i].src=" put link here ";
+}
