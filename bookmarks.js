@@ -26,22 +26,16 @@ if(accColors.includes(userColor)) {
   var e = document.createElement("img");
   e.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/2560px-DVD_logo.svg.png";
   e.style.cssText = "position: fixed; z-index: 9999; width: 140px; height: 140px";
-  
-  // Generate random initial positions within the screen boundaries
   var t = Math.random() * (innerWidth - 140);
   var n = Math.random() * (innerHeight - 140);
-  
   var a = 1, r = 1;
   document.body.appendChild(e);
-
   setInterval(function () {
     e.style.left = (t += a) + "px";
     e.style.top = (n += r) + "px";
-    
     if (t <= 0 || t + e.width >= innerWidth) {
       a = -a;
     }
-    
     if (n <= 0 || n + e.height >= innerHeight) {
       r = -r;
     }
