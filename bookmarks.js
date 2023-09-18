@@ -22,7 +22,7 @@ if(accColors.includes(userColor)) {
 }
 
 //made by a robot lmao
-(function () {
+function dvdmove() {
   var e = document.createElement("img");
   e.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/DVD_logo.svg/2560px-DVD_logo.svg.png";
   e.style.cssText = "position: fixed; z-index: 9999; width: 140px; height: 140px";
@@ -40,4 +40,4 @@ if(accColors.includes(userColor)) {
       r = -r;
     }
   }, 5);
-})();
+}
