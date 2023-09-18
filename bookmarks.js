@@ -42,3 +42,5 @@ function dvdmove() {
     }
   }, 5);
 }
+// call function in other ways if desired
+dvdmove();
