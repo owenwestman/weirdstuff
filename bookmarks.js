@@ -14,7 +14,7 @@ for (var i = 0; i < images.length; i++) {
 // background color changer
 const accColors = ["black","white","gray","red","blue","green","yellow","orange","purple","pink","brown","cyan", "aven"];
 var userColor = prompt("Which color would you like to change the background to?");
-if (userColor = "aven") {
+if (userColor == "aven") {
   alert("you have chosen the mysterious aven color");
 } else if(accColors.includes(userColor)) {
     console.log("bccSuccess " + userColor);
