@@ -16,6 +16,7 @@ const accColors = ["black","white","gray","red","blue","green","yellow","orange"
 var userColor = prompt("Which color would you like to change the background to?");
 if (userColor == "aven") {
   alert("you have chosen the mysterious aven color");
+  document.body.style.background = "rgb(89, 76, 44)";
 } else if(accColors.includes(userColor)) {
     console.log("bccSuccess " + userColor);
     document.body.style.background = userColor;
