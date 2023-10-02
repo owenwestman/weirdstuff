@@ -3,7 +3,7 @@
 
 // paste desired option between the curly brackets and use as bookmark
 // javascript:(()=>{   })()
-
+ 
 // image replacer
 let images = document.getElementsByTagName("img");
 console.log(images);
@@ -12,18 +12,9 @@ for (var i = 0; i < images.length; i++) {
 }
 
 // background color changer
-const accColors = ["black","white","gray","red","blue","green","yellow","orange","purple","pink","brown","cyan", "aven"];
 var userColor = prompt("Which color would you like to change the background to?");
-if (userColor == "aven") {
-  alert("you have chosen the mysterious aven color");
-  document.body.style.background = "rgb(89, 76, 44)";
-} else if(accColors.includes(userColor)) {
-    console.log("bccSuccess " + userColor);
+    console.log("bcc " + userColor);
     document.body.style.background = userColor;
-} else if(!accColors.includes(userColor)) {
-    console.log("bccFailure " + userColor);
-    alert("Please use one of the allowed colors in lowercase. Valid colors include: " + accColors);
-}
 
 //made by a robot lmao
 function dvdmove() {
