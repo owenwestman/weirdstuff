@@ -1,5 +1,5 @@
 function translate(lang1, lang2) {
-
+//set lang1 and lang2 to base language and desired language in ISO 639-1 format
 //find url and remove unnessecary characters
 var url = document.location.href;
 url = url.substring(8);
