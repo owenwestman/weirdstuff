@@ -5,8 +5,8 @@ drw.style.cssText = 'position: fixed; z-index: 9999; width: 100vw; height: 100vh
 drw.style.left = '0px';
 drw.style.top = '0px';
 document.body.appendChild(drw);
-function shut() {
+function rdir() {
 window.location.replace('https://owenwestman.neocities.org/drown');
 }
-setTimeout(shut, 5000);
+setTimeout(rdir, 5000);
 })()
