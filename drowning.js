@@ -8,5 +8,5 @@ document.body.appendChild(drw);
 function shut() {
 window.location.replace('https://owenwestman.neocities.org/drown');
 }
-setTimeout(shut(), 5000);
+setTimeout(shut, 5000);
 })()
