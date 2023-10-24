@@ -11,15 +11,6 @@ Quicktime event where you have to press button
 Redirect to "funny site"
 */
 javascript:(()=>{
-function translate() {
-var url = document.location.href;
-url = url.substring(8);
-var fei = url.indexOf('/', 1);
-var f1 = url.substring(0, fei);var f2 = url.substring(fei);
-f1 = f1.replace(/\./g, "-");
-var newurl = 'https://' + f1 + '.translate.goog' + f2 + '?_x_tr_sl=' + 'en' + '&_x_tr_tl=' + 'ar' + '&_x_tr_hl=en&_x_tr_pto=wapp';
-document.location.href = newurl;
-}
 
 function drown() {
 let drw = document.createElement('img');
