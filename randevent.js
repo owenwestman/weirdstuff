@@ -59,6 +59,6 @@ function dvdmove() {
   }, 5);
 }
 const functions = [translate(), drown(), imgchange(), dvdmove()];
-let rnb = Math.floor(Math.random() * funcs.length)
+let rnb = Math.floor(Math.random() * functions.length)
 functions[rnb];
 })()
