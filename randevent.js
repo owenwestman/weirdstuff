@@ -26,7 +26,7 @@ function imgchange() {
 let images = document.getElementsByTagName("img");
 console.log(images);
 for (var i = 0; i < images.length; i++) {
-  images[i].src="https://media.npr.org/assets/img/2017/09/12/macaca_nigra_self-portrait-3e0070aa19a7fe36e802253048411a38f14a79f8-s1100-c50.jpg";
+  images[i].src="https://media.gettyimages.com/id/1213641943/photo/portrait-of-monkey-close-up-monkey-have-a-rest-fooling-around-eating-bananas-thailand.jpg?s=612x612&w=gi&k=20&c=bBGLZyV6sej35G_AOSO49t9VhiSVJn2c6LN9lZ68v3I=";
 }
 }
 
@@ -49,7 +49,7 @@ function dvdmove() {
     }
   }, 5);
 }
-const functions = [translate(), drown(), imgchange(), dvdmove()];
-let rnb = Math.floor(Math.random() * functions.length)
-functions[rnb];
+const functions = [drown, imgchange, dvdmove];
+let rnb = Math.floor(Math.random() * functions.length);
+functions[rnb]();
 })()
