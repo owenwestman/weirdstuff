@@ -2,13 +2,8 @@
 // Compress with smth like jscompress.com and set as bookmark
 // Function ideas:
 /*
-M: Translate the page to another language
-M: Replace all images with images of whatever
-M: Put a DVD logo on the screen
-M: Drowning
-Change all the text to the Bible or smth else funny
+Change all the text to the Bee Movie or smth else funny
 Quicktime event where you have to press button
-Redirect to "funny site"
 */
 javascript:(()=>{
 
@@ -21,6 +16,9 @@ drw.style.top = '0px';
 document.body.appendChild(drw);
 function rdir() { window.location.replace('https://owenwestman.neocities.org/drown'); }
 setTimeout(rdir, 5000);
+}
+function belial() {
+window.location.replace('https://www.churchofsatan.com/');
 }
 function imgchange() {
 let images = document.getElementsByTagName("img");
@@ -49,7 +47,7 @@ function dvdmove() {
     }
   }, 5);
 }
-const functions = [drown, imgchange, dvdmove];
+const functions = [drown, imgchange, dvdmove, belial];
 let rnb = Math.floor(Math.random() * functions.length);
 functions[rnb]();
 })()
