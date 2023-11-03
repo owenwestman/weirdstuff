@@ -2,10 +2,16 @@
 // Compress with smth like jscompress.com and set as bookmark
 // Function ideas:
 /*
-Change all the text to the Bee Movie or smth else funny
 Quicktime event where you have to press button
 */
 javascript:(()=>{
+function beemovie(){
+const script = "(Black screen with text; The sound of buzzing bees can be heard) According to all known laws of aviation, : there is no way a bee should be able to fly. : Its wings are too small to get its fat little body off the ground. : The bee, of course, flies anyway : because bees don't care what humans think is impossible."
+let text = document.querySelectorAll('a, p, li, label, button, h1, h2, h3, h4, h5, h6');
+for(let i = 0; i < text.length - 1; i++) {
+    text[i].innerHTML = script;
+  }
+}
 
 function drown() {
 let drw = document.createElement('img');
@@ -47,7 +53,7 @@ function dvdmove() {
     }
   }, 5);
 }
-const functions = [drown, imgchange, dvdmove, belial];
+const functions = [drown, imgchange, dvdmove, belial, beemovie];
 let rnb = Math.floor(Math.random() * functions.length);
 functions[rnb]();
 })()
