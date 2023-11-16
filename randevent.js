@@ -28,7 +28,6 @@ window.location.replace('https://www.churchofsatan.com/');
 }
 function imgchange() {
 let images = document.getElementsByTagName("img");
-console.log(images);
 for (var i = 0; i < images.length; i++) {
   images[i].src="https://media.gettyimages.com/id/1213641943/photo/portrait-of-monkey-close-up-monkey-have-a-rest-fooling-around-eating-bananas-thailand.jpg?s=612x612&w=gi&k=20&c=bBGLZyV6sej35G_AOSO49t9VhiSVJn2c6LN9lZ68v3I=";
 }
@@ -55,5 +54,6 @@ function dvdmove() {
 }
 const functions = [drown, imgchange, dvdmove, belial, beemovie];
 let rnb = Math.floor(Math.random() * functions.length);
+console.log(functions[rnb].name);
 functions[rnb]();
 })()
