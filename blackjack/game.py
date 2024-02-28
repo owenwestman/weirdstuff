@@ -48,6 +48,10 @@ def rend():
 			print(pnames[i] + " bust")
 			pstatus[i] = False
 		else: continue
+
+def ldisplay():
+	print(str(pnames[i]) + "'s cards: " + str(pcards[i]) + " & total = " + str(sum(pcards[i])))
+
 # !!! INTRO SEQUENCE START !!!
 print("Welcome to gambling")
 pcount = input("How many players?\n")
@@ -68,15 +72,23 @@ print("")
 
 # TODO: add multiple round support after this comment
 
-# deal dealer cards
+# loop for multiple round support
+while True:
+	if rcount >= 1:
+		break
+	# deal dealer cards
+	addcards(2, dcards)
+	print("Dealer's cards: " +str(dcards))
 
-addcards(2, dcards)
-print("Dealer's cards: " +str(dcards))
+	# deal and display player cards
+	for i in range(pcount):
+		pcards.append([])
+		addcards(2, pcards[i])
+		ldisplay()
 
-# deal and display player cards
+	print("")
+	mchoice()
+	print(pcards)
+	rend()
 
-for i in range(pcount):
-	pcards.append([])
-	addcards(2, pcards[i])
-	print(str(pnames[i]) + "'s cards: " + str(pcards[i]))
-print("")
+	rcount += 1
