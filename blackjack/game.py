@@ -32,7 +32,7 @@ while pcount <= 0:
 
 # get player names
 pnames = []
-pstatus[]
+pstatus = []
 for i in range(pcount):
 	pnames.append(input("Player " + str(i+1) + " name?\n"))
 	pstatus.append(True)
