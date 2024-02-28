@@ -4,7 +4,14 @@ import random
 from random import randint
 # random number lib
 
-# function to give cards to players
+# init starting variables
+pnames = []
+pstatus = []
+dcards = []
+pcards = []
+rcount = 0
+
+# function to give cards to players 
 def addcards(amount, domain):
 	for i in range(amount):
 		card = randint(1, 12)
@@ -12,6 +19,7 @@ def addcards(amount, domain):
 			card = 10
 		domain.append(card)
 
+# function to check if player goes over 21
 def check(domain):
 	total = 0
 	for i in range(len(domain)):
@@ -20,7 +28,27 @@ def check(domain):
 		return False
 	elif total > 21:
 		return True
+	
+# function for hit stand choice
+def mchoice():
+	for i in range(pcount):
+		if pstatus:
+			choice = input(str(pnames[i]) + ", hit or stand? (h/s)\n")
+			if choice == "h":
+				addcards(1, pcards[i])
+			elif choice == "s":
+				continue
+			else: print("invalid option, standing")
 
+# function to show and update player status in round
+def rend():
+	for i in range(pcount):
+		check(pcards[i])
+		if check(pcards[i]):
+			print(pnames[i] + " bust")
+			pstatus[i] = False
+		else: continue
+# !!! INTRO SEQUENCE START !!!
 print("Welcome to gambling")
 pcount = input("How many players?\n")
 pcount = int(pcount)
@@ -31,42 +59,24 @@ while pcount <= 0:
 	pcount = int(pcount)
 
 # get player names
-pnames = []
-pstatus = []
+
 for i in range(pcount):
 	pnames.append(input("Player " + str(i+1) + " name?\n"))
 	pstatus.append(True)
 print("")
+# !!! INTRO SEQUENCE END !!!
+
+# TODO: add multiple round support after this comment
 
 # deal dealer cards
-dcards = []
+
 addcards(2, dcards)
 print("Dealer's cards: " +str(dcards))
 
 # deal and display player cards
-pcards = []
+
 for i in range(pcount):
 	pcards.append([])
 	addcards(2, pcards[i])
 	print(str(pnames[i]) + "'s cards: " + str(pcards[i]))
 print("")
-
-# hit stand choice
-def mchoice():
-	for i in range(pcount):
-		if pstatus:
-			choice = input(str(pnames[i]) + ", hit or stand? (h/s)\n")
-			if choice == "h":
-				addcards(1, pcards[i])
-			elif choice == "s":
-				continue
-			else: print("invalid option, standing")
-print(pcards)
-# show and update player status in round
-def rend():
-	for i in range(pcount):
-		check(pcards[i])
-		if check(pcards[i]):
-			print(pnames[i] + " bust")
-			pstatus[i] = False
-		else: continue
