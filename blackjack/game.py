@@ -11,7 +11,7 @@ dcards = []
 pcards = []
 rcount = 0
 
-# function to give cards to players 
+# function to give cards to players
 def addcards(amount, domain):
 	for i in range(amount):
 		card = randint(1, 12)
@@ -28,7 +28,7 @@ def check(domain):
 		return False
 	elif total > 21:
 		return True
-	
+
 # function for hit stand choice
 def mchoice():
 	for i in range(pcount):
@@ -48,6 +48,12 @@ def rend():
 			print(pnames[i] + " bust")
 			pstatus[i] = False
 		else: continue
+def dcheck():
+	for i in range(pcount):
+		if sum(pcards[i]) >= sum(dcards):
+			print(f"{pnames[i]} success")
+		else:
+			print(f"{pnames[i]} failure")
 
 def ldisplay():
 	print(str(pnames[i]) + "'s cards: " + str(pcards[i]) + " & total = " + str(sum(pcards[i])))
@@ -77,8 +83,9 @@ while True:
 	if rcount >= 1:
 		break
 	# deal dealer cards
-	addcards(2, dcards)
-	print("Dealer's cards: " +str(dcards))
+	while sum(dcards) < 16:
+		addcards(2, dcards)
+	print(f"Dealer's cards: {str(dcards)} & sum = {str(sum(dcards))}")
 
 	# deal and display player cards
 	for i in range(pcount):
@@ -90,5 +97,5 @@ while True:
 	mchoice()
 	print(pcards)
 	rend()
-
+	dcheck()
 	rcount += 1
