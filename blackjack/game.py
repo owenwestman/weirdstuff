@@ -87,7 +87,7 @@ for i in range(pcount):
 print("")
 # !!! INTRO SEQUENCE END !!!
 
-# loop for multiple round support
+# loop for multiple round support (sort of)
 while True:
 	if rcount >= 1:
 		break
@@ -109,5 +109,6 @@ while True:
 	rend()
 	dcheck()
 	rcount += 1
+# TODO: use loop to keep hitting until every player chooses to stop or goes over 21
 
 # im hungry so i don't wanna do this rn
