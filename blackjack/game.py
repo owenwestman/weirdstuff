@@ -75,12 +75,10 @@ while True:
 		continue
 # ensure that player count is a positive nonzero number
 
+# i don't feel like adding type checking to this so just don't be stupid probably
 while pcount <= 0:
 	pcount = input("Only positive numbers, how many players?\n")
-	try:
-		pcount = int(pcount)
-	except:
-		print("failure")
+	pcount = int(pcount)
 # get player names
 
 for i in range(pcount):
