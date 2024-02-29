@@ -48,26 +48,39 @@ def rend():
 			print(pnames[i] + " bust")
 			pstatus[i] = False
 		else: continue
+#function to check player cards against dealer cards
 def dcheck():
 	for i in range(pcount):
-		if sum(pcards[i]) >= sum(dcards):
+		if sum(pcards[i]) >= sum(dcards) and pstatus:
+			print(f"{pnames[i]} success")
+		elif sum(dcards) > 21:
 			print(f"{pnames[i]} success")
 		else:
 			print(f"{pnames[i]} failure")
 
-def ldisplay():
-	print(str(pnames[i]) + "'s cards: " + str(pcards[i]) + " & total = " + str(sum(pcards[i])))
+# function to display player cards
+# still works but doesn't throw error anymore
+def ldisplay(cvar):
+	print(str(pnames[cvar]) + "'s cards: " + str(pcards[cvar]) + " & total = " + str(sum(pcards[cvar])))
 
 # !!! INTRO SEQUENCE START !!!
 print("Welcome to gambling")
-pcount = input("How many players?\n")
-pcount = int(pcount)
-
+while True:
+	try:
+		pcount = input("How many players?\n")
+		pcount = int(pcount)
+		break
+	except:
+		print("Error recieved, please input number.")
+		continue
 # ensure that player count is a positive nonzero number
+
 while pcount <= 0:
 	pcount = input("Only positive numbers, how many players?\n")
-	pcount = int(pcount)
-
+	try:
+		pcount = int(pcount)
+	except:
+		print("failure")
 # get player names
 
 for i in range(pcount):
@@ -75,8 +88,6 @@ for i in range(pcount):
 	pstatus.append(True)
 print("")
 # !!! INTRO SEQUENCE END !!!
-
-# TODO: add multiple round support after this comment
 
 # loop for multiple round support
 while True:
@@ -91,8 +102,9 @@ while True:
 	for i in range(pcount):
 		pcards.append([])
 		addcards(2, pcards[i])
-		ldisplay()
+		ldisplay(i)
 
+	# debug printing ftw
 	print("")
 	mchoice()
 	print(pcards)
