@@ -109,3 +109,5 @@ while True:
 	rend()
 	dcheck()
 	rcount += 1
+
+# im hungry so i don't wanna do this rn
