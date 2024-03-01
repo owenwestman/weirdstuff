@@ -7,8 +7,10 @@ from random import randint
 # init starting variables
 pnames = []
 pstatus = []
+psuccess = []
 dcards = []
 pcards = []
+ctotal = []
 cstatus = 0
 rcount = 0
 
@@ -38,12 +40,13 @@ def rend():
 			print(pnames[i] + " bust")
 			pstatus[i] = False
 		else: continue
-#function to check player cards against dealer cards
+# function to check player cards against dealer cards
+# TODO: add to psuccess
 def dcheck():
 	for i in range(pcount):
-		if sum(pcards[i]) >= sum(dcards) and pstatus:
+		if sum(pcards[i]) >= sum(dcards) and pstatus[i]:
 			print(f"{pnames[i]} success")
-		elif sum(dcards) > 21:
+		elif sum(dcards) > 21 and sum(pcards[i]) <= 21:
 			print(f"{pnames[i]} success")
 		else:
 			print(f"{pnames[i]} failure")
@@ -121,11 +124,12 @@ while True:
 			break
 		else:
 			continue
+	# TODO: add score to final val
+	for i in range(pcount):
+		if pstatus[i] and psuccess[i]:
+			print("")
 		
 	print(pcards)
 	rend()
 	dcheck()
 	rcount += 1
-# TODO: use loop to keep hitting until every player chooses to stop or goes over 21
-
-# im hungry so i don't wanna do this rn
