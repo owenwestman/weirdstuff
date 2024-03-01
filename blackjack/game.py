@@ -9,6 +9,7 @@ pnames = []
 pstatus = []
 dcards = []
 pcards = []
+cstatus = 0
 rcount = 0
 
 # function to give cards to players
@@ -28,17 +29,6 @@ def check(domain):
 		return False
 	elif total > 21:
 		return True
-
-# function for hit stand choice
-def mchoice():
-	for i in range(pcount):
-		if pstatus:
-			choice = input(str(pnames[i]) + ", hit or stand? (h/s)\n")
-			if choice == "h":
-				addcards(1, pcards[i])
-			elif choice == "s":
-				continue
-			else: print("invalid option, standing")
 
 # function to show and update player status in round
 def rend():
@@ -62,6 +52,24 @@ def dcheck():
 # still works but doesn't throw error anymore
 def ldisplay(cvar):
 	print(str(pnames[cvar]) + "'s cards: " + str(pcards[cvar]) + " & total = " + str(sum(pcards[cvar])))
+
+# function for hit stand choice
+def mchoice():
+	global cstatus
+	cstatus = 0
+	for i in range(pcount):
+		if pstatus[i]:
+			choice = input(str(pnames[i]) + ", hit or stand? (h/s)\n")
+			if choice == "h":
+				addcards(1, pcards[i])
+				ldisplay(i)
+			elif choice == "s":
+				cstatus += 1
+				continue
+			else: 
+				print("invalid option, standing")
+				cstatus += 1
+				continue
 
 # !!! INTRO SEQUENCE START !!!
 print("Welcome to gambling")
@@ -104,7 +112,16 @@ while True:
 
 	# debug printing ftw
 	print("")
-	mchoice()
+	
+	# allow players to keep going if they want
+	while True:
+		mchoice()
+		print(cstatus)
+		if cstatus == pcount:
+			break
+		else:
+			continue
+		
 	print(pcards)
 	rend()
 	dcheck()
