@@ -38,18 +38,23 @@ def rend():
 		check(pcards[i])
 		if check(pcards[i]):
 			print(pnames[i] + " bust")
-			pstatus[i] = False
-		else: continue
+			pstatus.append(True)
+		else: 
+			pstatus.append(False)
+			continue
 # function to check player cards against dealer cards
 # TODO: add to psuccess
 def dcheck():
 	for i in range(pcount):
 		if sum(pcards[i]) >= sum(dcards) and pstatus[i]:
 			print(f"{pnames[i]} success")
+			psuccess[i] = True
 		elif sum(dcards) > 21 and sum(pcards[i]) <= 21:
 			print(f"{pnames[i]} success")
+			psuccess[i] = True
 		else:
 			print(f"{pnames[i]} failure")
+			psuccess[i] = False
 
 # function to display player cards
 # still works but doesn't throw error anymore
@@ -61,6 +66,7 @@ def mchoice():
 	global cstatus
 	cstatus = 0
 	for i in range(pcount):
+		rend()
 		if pstatus[i]:
 			choice = input(str(pnames[i]) + ", hit or stand? (h/s)\n")
 			if choice == "h":
@@ -118,16 +124,12 @@ while True:
 	
 	# allow players to keep going if they want
 	while True:
-		mchoice()
-		print(cstatus)
-		if cstatus == pcount:
+		if cstatus == pcount or all(pstatus):
 			break
 		else:
 			continue
-	# TODO: add score to final val
-	for i in range(pcount):
-		if pstatus[i] and psuccess[i]:
-			print("")
+		mchoice()
+		print(cstatus)
 		
 	print(pcards)
 	rend()
