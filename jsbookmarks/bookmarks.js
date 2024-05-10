@@ -16,6 +16,8 @@ var userColor = prompt("Which color would you like to change the background to?"
     console.log("bcc " + userColor);
     document.body.style.background = userColor;
 
+
+// !!! include entire section and dvdmove() or it won't do anything
 //made by a robot lmao
 function dvdmove() {
   var e = document.createElement("img");
