@@ -1,4 +1,5 @@
 # Made by Owen Eastman, Jan 29 2024
+# discontinued because I have no idea what I was doing before, and I don't know how to make it work again
 
 import random
 from random import randint
