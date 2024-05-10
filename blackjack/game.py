@@ -82,6 +82,7 @@ def mchoice():
 
 # !!! INTRO SEQUENCE START !!!
 print("Welcome to gambling")
+
 while True:
 	try:
 		pcount = input("How many players?\n")
@@ -96,6 +97,9 @@ while True:
 while pcount <= 0:
 	pcount = input("Only positive numbers, how many players?\n")
 	pcount = int(pcount)
+for i in range(pcount):
+	psuccess.append(True)
+
 # get player names
 
 for i in range(pcount):
@@ -106,7 +110,7 @@ print("")
 
 # loop for multiple round support (sort of)
 while True:
-	if rcount >= 1:
+	if rcount >= 4:
 		break
 	# deal dealer cards
 	while sum(dcards) < 16:
@@ -128,8 +132,6 @@ while True:
 			break
 		else:
 			continue
-		mchoice()
-		print(cstatus)
 		
 	print(pcards)
 	rend()
